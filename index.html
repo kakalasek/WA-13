@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="add-form">
+    <form class="add-form">
       <div class="title">ADD</div>
       <div class="sub-title">Author</div>
       <div class="author">
         <label for="author-name">Name: </label>
-        <input type="text" id="author-name" />
+        <input type="text" id="author-name" required />
         <label for="author-surname">Surname: </label>
-        <input type="text" id="author-surname" />
+        <input type="text" id="author-surname" required />
         <label for="author-date-of-birth">Date of birth: </label>
-        <input type="date" id="author-date-of-birth" />
+        <input type="date" id="author-date-of-birth" required />
       </div>
       <div class="sub-title">Painting</div>
       <div class="painting">
         <label for="painting-name">Name: </label>
-        <input type="text" id="painting-name" />
+        <input type="text" id="painting-name" required />
         <label for="painting-price">Price: </label>
-        <input type="number" id="painting-price" />
+        <input type="number" id="painting-price" required />
         <label for="painting-date-of-creation">Date of creation: </label>
-        <input type="date" id="painting-date-of-creation" />
+        <input type="date" id="painting-date-of-creation" required />
       </div>
       <input type="submit" id="add-to-gallery" />
-    </div>
+    </form>
     <script src="script_clas.js"></script>
   </body>
 </html>

@@ -22,7 +22,7 @@ class Gallery {
   }
 
   addPainting(painting) {
-    if (painting !== Painting) throw "Not a painting";
+    if (!(painting instanceof Painting)) throw "Not a painting";
     this.paintings.push(painting);
     this.paintings.sort((p1, p2) => {
       p2.price - p1.price;
@@ -48,7 +48,7 @@ class Gallery {
 
   allPaintingsFrom(author) {
     let output = [];
-    if (author !== Author) throw "Not an author";
+    if (!(author instanceof Author)) throw "Not an author";
     output[0] = author;
     output[1] = [];
     this.paintings.forEach((element) => {
@@ -65,3 +65,37 @@ class Gallery {
 }
 
 /* Form stuff */
+
+// Variables
+const gallery = new Gallery();
+
+const addForm = document.querySelector(".add-form");
+
+const authorName = document.querySelector("#author-name");
+const authorSurname = document.querySelector("#author-surname");
+const authorDateOfBirth = document.querySelector("#author-date-of-birth");
+
+const paintingName = document.querySelector("#painting-name");
+const paintingPrice = document.querySelector("#painting-price");
+const paintingDateOfCreation = document.querySelector(
+  "#painting-date-of-creation"
+);
+
+const submit = document.querySelector("#add-to-gallery");
+
+addForm.addEventListener("submit", (e) => e.preventDefault());
+
+submit.addEventListener("click", () => {
+  gallery.addPainting(
+    new Painting(
+      new Author(
+        authorName.value,
+        authorSurname.value,
+        authorDateOfBirth.value
+      ),
+      paintingName.value,
+      Number(paintingPrice.value),
+      paintingDateOfCreation.value
+    )
+  );
+});
