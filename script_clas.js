@@ -66,6 +66,7 @@ class Gallery {
 
 /* Form stuff */
 
+/* ADD */
 // Variables
 const gallery = new Gallery();
 
@@ -99,3 +100,14 @@ submit.addEventListener("click", () => {
     )
   );
 });
+
+/* The Rest */
+const output = document.querySelector(".output")
+
+/* FULL PRICE */
+
+/* EXPENSIVE THREE */
+
+/* GET BY AUTHOR */
+
+/* GET ALL */
