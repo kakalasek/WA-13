@@ -105,6 +105,10 @@ submit.addEventListener("click", () => {
 const output = document.querySelector(".output")
 
 /* FULL PRICE */
+const fullPrice = document.querySelector("#full-price")
+fullPrice.addEventListener("click", () => {
+  output.textContent = gallery.finalPrice()
+})
 
 /* EXPENSIVE THREE */
 
