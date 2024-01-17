@@ -141,3 +141,5 @@ storeItems.addEventListener("click", () => {
 
 /* DELETE ALL FROM STORAGE */
 const deleteAllItems = document.querySelector("#delete-items");
+
+deleteAllItems.addEventListener("click", localStorage.clear);
