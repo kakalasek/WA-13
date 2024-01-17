@@ -25,7 +25,7 @@ class Gallery {
     if (!(painting instanceof Painting)) throw "Not a painting";
     this.paintings.push(painting);
     this.paintings.sort((p1, p2) => {
-      p2.price - p1.price;
+      return p2.price - p1.price;
     });
   }
 
@@ -102,16 +102,42 @@ submit.addEventListener("click", () => {
 });
 
 /* The Rest */
-const output = document.querySelector(".output")
+const output = document.querySelector(".output");
 
 /* FULL PRICE */
-const fullPrice = document.querySelector("#full-price")
+const fullPrice = document.querySelector("#full-price");
 fullPrice.addEventListener("click", () => {
-  output.textContent = gallery.finalPrice()
-})
+  output.textContent = "";
+  output.textContent = gallery.finalPrice();
+});
 
 /* EXPENSIVE THREE */
+const expensiveThree = document.querySelector("#expensive-three");
+
+expensiveThree.addEventListener("click", () => {
+  output.textContent = "";
+  gallery.expensiveThree().forEach((element) => {
+    output.textContent += `${element[0].name}: ${element[1]} `;
+  });
+});
 
 /* GET BY AUTHOR */
+const getByAuthor = document.querySelector("#get-paintings-by-author");
+const getAuthorName = document.querySelector("#get-author-name");
 
 /* GET ALL */
+
+/* LOCALSTORAGE */
+
+/* ADD TO STORAGE */
+const storeItems = document.querySelector("#store-items");
+
+storeItems.addEventListener("click", () => {
+  let i = 0;
+  gallery.paintings.forEach((element) => {
+    localStorage.setItem(i++, JSON.stringify(element));
+  });
+});
+
+/* DELETE ALL FROM STORAGE */
+const deleteAllItems = document.querySelector("#delete-items");
